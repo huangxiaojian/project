@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5FEEEF4F-6788-4AF3-A682-91C3110E1BF8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>SingleFace</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir)\dtrans\dtrans;$(SolutionDir)\dtrans\Include;$(SolutionDir)\dtrans\common;$(SolutionDir)\LP;$(OPENCV_DIR)\include\opencv;$(OPENCV_DIR)\include;$(KINECTSDK10_DIR)\inc;$(FTSDK_DIR)inc;$(SolutionDir)\$(ProjectName)\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\dtrans\Lib\$(Configuration);$(SolutionDir)\dtrans\lapack_windows;$(OPENCV_DIR)\x86\vc11\lib;$(FTSDK_DIR)Lib\x86;$(KINECTSDK10_DIR)\Lib\x86;$(LibraryPath)</LibraryPath>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+    <OutDir>$(SolutionDir)Out\$(ProjectName)\$(PlatformName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Int\$(ProjectName)\$(PlatformName)\$(Configuration)\</IntDir>
+    <ExecutablePath>$(OPENCV_DIR)\x86\vc11\bin;$(VCInstallDir)bin;$(WindowsSDK_ExecutablePath_x86);$(VSInstallDir)Common7\Tools\bin;$(VSInstallDir)Common7\tools;$(VSInstallDir)Common7\ide;$(ProgramFiles)\HTML Help Workshop;$(MSBuildToolsPath32);$(VSInstallDir);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(FTSDK_DIR)inc;$(KINECTSDK10_DIR)\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>$(FTSDK_DIR)Lib\amd64;$(KINECTSDK10_DIR)\Lib\amd64;$(LibraryPath)</LibraryPath>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+    <OutDir>$(SolutionDir)Out\$(ProjectName)\$(PlatformName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Int\$(ProjectName)\$(PlatformName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(SolutionDir)\dtrans\dtrans;$(SolutionDir)\dtrans\Include;$(SolutionDir)\dtrans\common;$(SolutionDir)\LP;$(OPENCV_DIR)\include\opencv;$(OPENCV_DIR)\include;$(KINECTSDK10_DIR)\inc;$(FTSDK_DIR)inc;$(SolutionDir)\$(ProjectName)\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\dtrans\Lib\$(Configuration);$(SolutionDir)\dtrans\lapack_windows;$(OPENCV_DIR)\x86\vc11\lib;$(FTSDK_DIR)Lib\x86;$(KINECTSDK10_DIR)\Lib\x86;$(LibraryPath)</LibraryPath>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+    <OutDir>$(SolutionDir)Out\$(ProjectName)\$(PlatformName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Int\$(ProjectName)\$(PlatformName)\$(Configuration)\</IntDir>
+    <ExecutablePath>$(OPENCV_DIR)\x86\vc11\bin;$(VCInstallDir)bin;$(WindowsSDK_ExecutablePath_x86);$(VSInstallDir)Common7\Tools\bin;$(VSInstallDir)Common7\tools;$(VSInstallDir)Common7\ide;$(ProgramFiles)\HTML Help Workshop;$(MSBuildToolsPath32);$(VSInstallDir);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(FTSDK_DIR)inc;$(KINECTSDK10_DIR)\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>$(FTSDK_DIR)Lib\amd64;$(KINECTSDK10_DIR)\Lib\amd64;$(LibraryPath)</LibraryPath>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+    <OutDir>$(SolutionDir)Out\$(ProjectName)\$(PlatformName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Int\$(ProjectName)\$(PlatformName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>FaceTrackLib.lib;Kinect10.lib;opencv_core245d.lib;opencv_highgui245d.lib;opencv_imgproc245d.lib;opencv_objdetect245d.lib;libblas.lib;liblapack.lib;metis.lib;suitesparse.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(FTSDK_DIR)Redist\x86\FaceTrackLib.dll" "$(OutDir)" /eiycq
+xcopy "$(FTSDK_DIR)Redist\x86\FaceTrackData.dll" "$(OutDir)" /eiycq
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN64;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OmitFramePointers>false</OmitFramePointers>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>FaceTrackLib.lib;Kinect10.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(FTSDK_DIR)Redist\amd64\FaceTrackLib.dll" "$(OutDir)" /eiycq
+xcopy "$(FTSDK_DIR)Redist\amd64\FaceTrackData.dll" "$(OutDir)" /eiycq
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>FaceTrackLib.lib;Kinect10.lib;opencv_core245.lib;opencv_highgui245.lib;opencv_imgproc245.lib;opencv_objdetect245.lib;libblas.lib;liblapack.lib;metis.lib;suitesparse.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(FTSDK_DIR)Redist\x86\FaceTrackLib.dll" "$(OutDir)" /eiycq
+xcopy "$(FTSDK_DIR)Redist\x86\FaceTrackData.dll" "$(OutDir)" /eiycq
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN64;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OmitFramePointers>false</OmitFramePointers>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>FaceTrackLib.lib;Kinect10.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(FTSDK_DIR)Redist\amd64\FaceTrackLib.dll" "$(OutDir)" /eiycq
+xcopy "$(FTSDK_DIR)Redist\amd64\FaceTrackData.dll" "$(OutDir)" /eiycq
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="SingleFace.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\dtrans\common\3dtree.h" />
+    <ClInclude Include="..\dtrans\common\cholmod_wrapper.h" />
+    <ClInclude Include="..\dtrans\common\constraint.h" />
+    <ClInclude Include="..\dtrans\common\dt_type.h" />
+    <ClInclude Include="..\dtrans\common\matrix3x3.h" />
+    <ClInclude Include="..\dtrans\common\mesh_model.h" />
+    <ClInclude Include="..\dtrans\common\surface_matrix.h" />
+    <ClInclude Include="..\dtrans\common\triangle_corr.h" />
+    <ClInclude Include="..\dtrans\common\triangle_corr_dict.h" />
+    <ClInclude Include="..\dtrans\dtrans\DTConverter.h" />
+    <ClInclude Include="..\dtrans\dtrans\dt_equation.h" />
+    <ClInclude Include="..\dtrans\dtrans\mesh_seg.h" />
+    <ClInclude Include="..\dtrans\dtrans\transformer.h" />
+    <ClInclude Include="..\LP\Subdivision.h" />
+    <ClInclude Include="..\LP\utilVector.h" />
+    <ClInclude Include="eggavatar.h" />
+    <ClInclude Include="FaceConverter.h" />
+    <ClInclude Include="gazeTracking.h" />
+    <ClInclude Include="GLContext.h" />
+    <ClInclude Include="SingleFace.h" />
+    <ClInclude Include="FTHelper.h" />
+    <ClInclude Include="KinectSensor.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="utilVector.h" />
+    <ClInclude Include="Visualize.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\dtrans\common\3dtree.cpp" />
+    <ClCompile Include="..\dtrans\common\3dtree_search.cpp" />
+    <ClCompile Include="..\dtrans\common\3dtree_split.cpp" />
+    <ClCompile Include="..\dtrans\common\cholmod_wrapper.cpp" />
+    <ClCompile Include="..\dtrans\common\constraint.cpp" />
+    <ClCompile Include="..\dtrans\common\matrix3x3.cpp" />
+    <ClCompile Include="..\dtrans\common\mesh_model.cpp" />
+    <ClCompile Include="..\dtrans\common\surface_matrix.cpp" />
+    <ClCompile Include="..\dtrans\common\triangle_corr.cpp" />
+    <ClCompile Include="..\dtrans\common\triangle_corr_dict.cpp" />
+    <ClCompile Include="..\dtrans\dtrans\dt_equation.cpp" />
+    <ClCompile Include="..\dtrans\dtrans\mesh_seg.cpp" />
+    <ClCompile Include="..\dtrans\dtrans\transformer.cpp" />
+    <ClCompile Include="..\LP\Subdivision.cpp" />
+    <ClCompile Include="eggavatar.cpp" />
+    <ClCompile Include="gazeTracking.cpp" />
+    <ClCompile Include="SingleFace.cpp" />
+    <ClCompile Include="FTHelper.cpp" />
+    <ClCompile Include="KinectSensor.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Visualize.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SingleFace.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

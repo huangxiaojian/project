@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\LP">
+      <UniqueIdentifier>{354fc038-3b92-428d-bb68-cee405741274}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LP">
+      <UniqueIdentifier>{381c700b-1345-4d61-a188-81ece7ef075c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dtrans">
+      <UniqueIdentifier>{3281a438-d9d0-4d98-ac67-5c42be6ac34c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dtrans\common">
+      <UniqueIdentifier>{3799af11-0496-467a-8439-ebb32e49a58d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dtrans">
+      <UniqueIdentifier>{a7b67de7-8fc4-4851-aa84-fc42f5e12fc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dtrans\common">
+      <UniqueIdentifier>{a3223c5c-1cc8-4c16-8609-8d00824d8967}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SingleFace.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleFace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eggavatar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KinectSensor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Visualize.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FTHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GLContext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utilVector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gazeTracking.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LP\Subdivision.h">
+      <Filter>Header Files\LP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\LP\utilVector.h">
+      <Filter>Header Files\LP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dtrans\common\3dtree.h">
+      <Filter>Header Files\dtrans\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dtrans\common\cholmod_wrapper.h">
+      <Filter>Header Files\dtrans\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dtrans\common\constraint.h">
+      <Filter>Header Files\dtrans\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dtrans\common\dt_type.h">
+      <Filter>Header Files\dtrans\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dtrans\common\matrix3x3.h">
+      <Filter>Header Files\dtrans\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dtrans\common\mesh_model.h">
+      <Filter>Header Files\dtrans\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dtrans\common\surface_matrix.h">
+      <Filter>Header Files\dtrans\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dtrans\common\triangle_corr.h">
+      <Filter>Header Files\dtrans\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dtrans\common\triangle_corr_dict.h">
+      <Filter>Header Files\dtrans\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dtrans\dtrans\dt_equation.h">
+      <Filter>Header Files\dtrans</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dtrans\dtrans\DTConverter.h">
+      <Filter>Header Files\dtrans</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dtrans\dtrans\mesh_seg.h">
+      <Filter>Header Files\dtrans</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dtrans\dtrans\transformer.h">
+      <Filter>Header Files\dtrans</Filter>
+    </ClInclude>
+    <ClInclude Include="FaceConverter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SingleFace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="eggavatar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KinectSensor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Visualize.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FTHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gazeTracking.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LP\Subdivision.cpp">
+      <Filter>Source Files\LP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrans\common\3dtree.cpp">
+      <Filter>Source Files\dtrans\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrans\common\3dtree_search.cpp">
+      <Filter>Source Files\dtrans\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrans\common\3dtree_split.cpp">
+      <Filter>Source Files\dtrans\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrans\common\cholmod_wrapper.cpp">
+      <Filter>Source Files\dtrans\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrans\common\constraint.cpp">
+      <Filter>Source Files\dtrans\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrans\common\matrix3x3.cpp">
+      <Filter>Source Files\dtrans\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrans\common\mesh_model.cpp">
+      <Filter>Source Files\dtrans\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrans\common\surface_matrix.cpp">
+      <Filter>Source Files\dtrans\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrans\common\triangle_corr.cpp">
+      <Filter>Source Files\dtrans\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrans\common\triangle_corr_dict.cpp">
+      <Filter>Source Files\dtrans\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrans\dtrans\dt_equation.cpp">
+      <Filter>Source Files\dtrans</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrans\dtrans\mesh_seg.cpp">
+      <Filter>Source Files\dtrans</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dtrans\dtrans\transformer.cpp">
+      <Filter>Source Files\dtrans</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SingleFace.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
