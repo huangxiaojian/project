@@ -14,7 +14,7 @@
 #include "mesh_model.h"
 #include "transformer.h"
 
-#define MYDEBUG
+
 
 #define VERTEXCOUNT 121
 #define TRIANGLECOUNT 206
@@ -28,7 +28,7 @@
 #define min(a,b)    (((a) < (b)) ? (a) : (b))
 #endif
 
-#define READOBJFORDEBUG
+//#define READOBJFORDEBUG
 
 //#define OUTPUTTOFILE
 
@@ -46,11 +46,15 @@ extern FILE* fp[FPNUM];
 //#define DRAWFACEMODEL
 #endif
 
+//#define MYDEBUG
+
 #ifdef MYDEBUG
 #include <iostream>
 #endif
 
 typedef void (*FTHelperCallBack)(PVOID lpParam);
+
+enum MeshType{KinectMesh, SrcRefMesh, TgtRefMesh, OutputMesh};
 
 struct GazeState{
 	inline void set(float ox, float oy, int t0, int t1, int t2)
@@ -101,8 +105,14 @@ public:
 	float GetPupilR()			{return m_pupilR;}
 	void DrawSrcMeshModel(bool wired = false)		{srcMesh.DrawMeshModel(wired);}
 	void CalculateSrcMeshPosCorrection(double *cx, double *cy, double *cz)	{srcMesh.CalculateModelPosCorrection(cx, cy, cz);}	
-	void DrawTgtMeshModel()		{resultMesh.DrawMeshModel();}
+	void DrawTgtMeshModel(bool wired = false)		{tgtMesh.DrawMeshModel(wired);}
 	void CalculateTgtMeshPosCorrection(double *cx, double *cy, double *cz)	{tgtMesh.CalculateModelPosCorrection(cx, cy, cz);}
+	void DrawResMeshModel(bool wired = false)		{resultMesh.DrawMeshModel(wired);}
+	void CalculateResMeshPosCorrection(double *cx, double *cy, double *cz)	{resultMesh.CalculateModelPosCorrection(cx, cy, cz);}
+
+
+	void DrawMeshModel(MeshType meshType, bool wired = false);
+	void CalculateMeshPosCorrection(MeshType meshType, double *cx, double *cy, double *cz);
 
 private:
     KinectSensor                m_KinectSensor;

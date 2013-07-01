@@ -29,7 +29,6 @@
 FILE* fp[FPNUM];
 #endif
 
-//#include <GL/freeglut_ext.h>
 
 #define WINDOW_WIDTH		1210
 #define WINDOW_HEIGHT		600
@@ -47,7 +46,7 @@ enum Panel{Border, LeftPanel, RightPanel};
 struct PanelLayout 
 {
 	PanelLayout():cameraAngleX(0.0), cameraAngleY(0.0), mouseX(0), 
-		mouseY(0), cameraLeftDistance(0.22), cameraRightDistance(2.0)
+		mouseY(0), cameraLeftDistance(-0.76), cameraRightDistance(13.0)
 	{}
 	GLfloat cameraAngleX, cameraAngleY;
 	GLint mouseX, mouseY;
@@ -190,9 +189,9 @@ void SingleFace::SetCurrentView(Panel panel)
 		break;
 	}
 
-#ifdef _DEBUG
-	std::cout << "x:" << x << " y:" << y << " width:" << width << " height:" << height << std::endl;
-#endif
+//#ifdef _DEBUG
+//	std::cout << "x:" << x << " y:" << y << " width:" << width << " height:" << height << std::endl;
+//#endif
 	glViewport(x, y, width, height);
 	glEnable(GL_SCISSOR_TEST);
 	glScissor(x, y, width, height);
@@ -215,7 +214,7 @@ void SingleFace::MouseWheel(int dir, int x, int y)
 	if(panel == LeftPanel)
 		m_panelLayout.cameraLeftDistance += (GLfloat)(dir * 0.02 / WHEEL_DELTA);
 	else if(panel == RightPanel)
-		m_panelLayout.cameraRightDistance += (GLfloat)(dir * 0.2 / WHEEL_DELTA);
+		m_panelLayout.cameraRightDistance += (GLfloat)(dir * 0.1 / WHEEL_DELTA);
 #ifdef _DEBUG
 	std::cout << "cameraLeftDistance:" << m_panelLayout.cameraLeftDistance << std::endl;
 	std::cout << "cameraRightDistance:" << m_panelLayout.cameraRightDistance << std::endl;
@@ -227,27 +226,27 @@ void SingleFace::MouseMove(int state, int x, int y)
 {
 	if(state == MK_LBUTTON)
 	{
-#ifdef _DEBUG
-		std::cout << "MouseMove************" << std::endl;
-		std::cout << "x:" << x << ", y:" << y << std::endl; 
-#endif
+//#ifdef _DEBUG
+//		std::cout << "MouseMove************" << std::endl;
+//		std::cout << "x:" << x << ", y:" << y << std::endl; 
+//#endif
 		m_panelLayout.cameraAngleY += (GLfloat)(x - m_panelLayout.mouseX);
 		m_panelLayout.cameraAngleX += (GLfloat)(y - m_panelLayout.mouseY);
 		m_panelLayout.mouseX = x;
 		m_panelLayout.mouseY = y;
-#ifdef _DEBUG
-		std::cout << "angleX:" << m_panelLayout.cameraAngleX << std::endl;
-		std::cout << "angleY:" << m_panelLayout.cameraAngleY << std::endl;
-#endif
+//#ifdef _DEBUG
+//		std::cout << "angleX:" << m_panelLayout.cameraAngleX << std::endl;
+//		std::cout << "angleY:" << m_panelLayout.cameraAngleY << std::endl;
+//#endif
 	}
 }
 
 void SingleFace::MouseDown(int x, int y)
 {
-#ifdef _DEBUG
-	std::cout << "MouseDown************" << std::endl;
-	std::cout << "x:" << x << ", y:" << y << std::endl; 
-#endif
+//#ifdef _DEBUG
+//	std::cout << "MouseDown************" << std::endl;
+//	std::cout << "x:" << x << ", y:" << y << std::endl; 
+//#endif
 	m_panelLayout.mouseX = x;
 	m_panelLayout.mouseY = y;
 }
@@ -279,14 +278,14 @@ void SingleFace::DrawLeftPanel()
 	SetCurrentView(LeftPanel);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	SetCamera(0, 0, -1, 0, 0, 0);
+	SetCamera(0, 0, 1, 0, 0, 0);
 
 	glColor3f(MODEL_COLOR);
 	SetMaterial();
 
 	GLdouble cx, cy, cz;
 	m_FTHelper.CalculateSrcMeshPosCorrection(&cx, &cy, &cz);
-	SetTransform(-m_panelLayout.cameraAngleX, m_panelLayout.cameraAngleY, m_panelLayout.cameraLeftDistance, cx, cy, cz);
+	SetTransform(m_panelLayout.cameraAngleX, m_panelLayout.cameraAngleY, m_panelLayout.cameraLeftDistance, cx, cy, cz);
 	m_FTHelper.DrawSrcMeshModel(m_wired);
 #ifdef _DEBUG
 	std::cout << "*******************" << std::endl;
@@ -295,30 +294,25 @@ void SingleFace::DrawLeftPanel()
 
 void SingleFace::DrawRightPanel()
 {
+#ifdef _DEBUG
+	std::cout << "Right Panel:" << std::endl;
+#endif
 	SetCurrentView(RightPanel);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	SetCamera(0, 0, 5, 0, 0, 0);
+	SetCamera(0, 0, 1, 0, 0, 0);
 
-	//glColor3f(MODEL_COLOR);
-	//SetMaterial();
+	glColor3f(MODEL_COLOR);
+	SetMaterial();
 
-	glColor3f(0.0, 1.0, 0.0);
-	glBegin(GL_TRIANGLES);
-	glVertex3f( 0.0f, 1.0f, 0.0f);
-	glVertex3f(-1.0f,-1.0f, 0.0f);
-	glVertex3f( 1.0f,-1.0f, 0.0f); 
-	glEnd();  
-	/*
-	glBegin(GL_TRIANGLES);
-	glNormal3f(0.0, 0.0, 1.0);
-	glVertex3f(-0.5, -0.4, 0.0);
-	glNormal3f(0.0, 0.0, 1.0);
-	glVertex3f(0.5, -0.4, 0.0);
-	glNormal3f(0.0, 0.0, 1.0);
-	glVertex3f(0.0, 0.3, 0.0);
-	glEnd();*/
-	glFlush();
+	GLdouble cx, cy, cz;
+	m_FTHelper.CalculateResMeshPosCorrection(&cx, &cy, &cz);
+	SetTransform(m_panelLayout.cameraAngleX, m_panelLayout.cameraAngleY, m_panelLayout.cameraRightDistance, cx, cy, cz);
+	//m_FTHelper.DrawTgtMeshModel(m_wired);
+	m_FTHelper.DrawResMeshModel(m_wired);
+#ifdef _DEBUG
+	std::cout << "*******************" << std::endl;
+#endif
 }
 
 void SingleFace::DrawGLScene()

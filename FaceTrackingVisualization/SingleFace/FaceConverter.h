@@ -18,7 +18,7 @@ public:
 			LS_Vertex* v = new LS_Vertex();
 			v->pos[0] = src.GetVertices()[i].x;
 			v->pos[1] = src.GetVertices()[i].y;
-			v->pos[2] = src.GetVertices()[i].z;
+			v->pos[2] = -src.GetVertices()[i].z;
 
 			tgt.vertices.push_back(v);
 			v->creationLevel = tgt.subdivisionLevel;
@@ -31,7 +31,7 @@ public:
 			if(tgt.isInFaceIndex(i))
 				continue;
 			//src.m_pTriangles[i] index begin from 0
-			tgt.AddFaceOfIndex(tgt.toNewIndex(src.GetTriangles()[i].i), tgt.toNewIndex(src.GetTriangles()[i].j), tgt.toNewIndex(src.GetTriangles()[i].k));
+			tgt.AddFaceOfIndex(tgt.toNewIndex(src.GetTriangles()[i].i), tgt.toNewIndex(src.GetTriangles()[i].k), tgt.toNewIndex(src.GetTriangles()[i].j));
 		}
 	}
 };

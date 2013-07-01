@@ -10,6 +10,8 @@
 
 #include <math.h>
 
+#define _DEBUG
+
 #ifdef _DEBUG
 #include <iostream>
 #endif // _DEBUG
@@ -27,7 +29,7 @@ PVOID _opt = NULL;
 //#define FACETRIANGLESINDEXARRAY {70,54,71,71,74,70,75,74,71,75,57,74,69,21,68,69,68,73,73,68,72,72,24,73}
 #define ISZERO(x) (fabsf((x))<0.00001)
 
-//#define DTTRANS
+#define DTTRANS
 
 enum EYEINDEX{RIGHTINDEX, LEFTINDEX};
 
@@ -178,14 +180,27 @@ FTHelper::FTHelper()
 	m_gazeLastState[LEFTINDEX].set(0.5,0,67,72,71);
 
 #ifdef DTTRANS
+#ifdef _DEBUG
+	std::cout << "read obj begin" << std::endl;
+#endif
 	refMesh.ReadObjFile("model_src.obj");
 	tgtMesh.ReadObjFile("model_ref.obj");
-
+#ifdef _DEBUG
+	std::cout << "read obj end" << std::endl;
+	std::cout << "dtrans begin" << std::endl;
+#endif
 	DTTransformer::DTBegin();
+#ifdef _DEBUG
+	std::cout << "dtrans end" << std::endl;
+#endif
 	trans.CreateDeformationTransformer(&srcMesh, &refMesh, "out.tricorrs", 3);
+#ifdef _DEBUG
+	std::cout << "create over" << std::endl;
+#endif
 #endif
 #ifdef READOBJFORDEBUG
-	srcMesh.ReadObjFile("0_out.obj");
+	srcMesh.ReadObjFile("model_src.obj");
+	resultMesh.ReadObjFile("model_ref.obj");
 #endif
 }
 
@@ -369,6 +384,8 @@ BOOL FTHelper::SubmitFraceTrackingResult(IFTResult* pResult)
 				//FaceConverter::ConvertMesh(*this, lsSurface);
 				//lsSurface.Subdivide(3);
 				//DTConverter::ConvertMesh(lsSurface, srcMesh);
+				//lsSurface.Subdivide(3);
+				//DTConverter::ConvertMesh(lsSurface, tgtMesh);
 				//SaveModel(0);
 				//srcMesh.SaveObjFile("00.obj");
 #endif
@@ -1059,6 +1076,49 @@ void FTHelper::Map2Dto3D()
 #endif
 }
 
+void FTHelper::DrawMeshModel(MeshType meshType, bool wired)
+{
+	switch (meshType)
+	{
+	case KinectMesh:
+		srcMesh.DrawMeshModel(wired);
+		break;
+	case SrcRefMesh:
+		refMesh.DrawMeshModel(wired);
+		break;
+	case TgtRefMesh:
+		tgtMesh.DrawMeshModel(wired);
+		break;
+	case OutputMesh:
+		resultMesh.DrawMeshModel(wired);
+		break;
+	default:
+		break;
+	}
+}
+
+void FTHelper::CalculateMeshPosCorrection(MeshType meshType, double *cx, double *cy, double *cz)
+{
+	switch (meshType)
+	{
+	case KinectMesh:
+		srcMesh.CalculateModelPosCorrection(cx, cy, cz);
+		break;
+	case SrcRefMesh:
+		refMesh.CalculateModelPosCorrection(cx, cy, cz);
+		break;
+	case TgtRefMesh:
+		tgtMesh.CalculateModelPosCorrection(cx, cy, cz);
+		break;
+	case OutputMesh:
+		resultMesh.CalculateModelPosCorrection(cx, cy, cz);
+		break;
+	default:
+		break;
+	}
+}
+
+
 #ifdef NEEDFILTER
 void FTHelper::LowFilter(POINT pupil[2])
 {
@@ -1066,3 +1126,4 @@ void FTHelper::LowFilter(POINT pupil[2])
 	pupil[RIGHTINDEX] = util::FloatToPOINT((pupil[RIGHTINDEX].x*10+m_lastPosition[0][RIGHTINDEX].x*3+m_lastPosition[1][RIGHTINDEX].x*2+m_lastPosition[2][RIGHTINDEX].x)*1.0/16, (pupil[RIGHTINDEX].y*10+m_lastPosition[0][RIGHTINDEX].y*3+m_lastPosition[1][RIGHTINDEX].y*2+m_lastPosition[2][RIGHTINDEX].y)*1.0/16);
 }
 #endif
+
